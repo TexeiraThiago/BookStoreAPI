@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  michelledb:
+    image: postgres:16
+    container_name: JPADb
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: bookstore-jpa
+    ports:
+      - "5431:5432"
+    volumes:
+      - jpadb_data:/var/lib/postgresql/data
+
+volumes:
+  jpadb_data:
+    driver: local
